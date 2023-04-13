@@ -7,7 +7,7 @@ import TextForm from './components/TextForm';
 
 function App() {
 
-    const [mode, setMode] = useState('light')
+    const [mode, setMode] = useState('white')
     const [alert,setAlert] = useState(null)
 
     const showAlert = (message,type) =>{
@@ -20,14 +20,22 @@ function App() {
       }, 3000);
     }
     const toggleMode = () => {
-      if(mode === 'light'){
-        setMode('dark')
-        document.body.style.backgroundColor = '#04295e'
-        showAlert("Dark Mode has been enabled","success")
-      }else{
-        setMode('light')
+      if(document.getElementById('mySelect').value === 'light'){
+        setMode('white')
         document.body.style.backgroundColor = 'white'
         showAlert("Light Mode has been enabled","success")
+      }else if(document.getElementById('mySelect').value === 'dark'){
+        setMode('#04295e')
+        document.body.style.backgroundColor = '#04295e'
+        showAlert("Dark Mode has been enabled","success")
+      }else if(document.getElementById('mySelect').value === 'green'){
+        setMode('green')
+        document.body.style.backgroundColor = 'green'
+        showAlert("Green Mode has been enabled","success")
+      }else if(document.getElementById('mySelect').value === 'blue'){
+        setMode('blue')
+        document.body.style.backgroundColor = 'blue'
+        showAlert("Blue Mode has been enabled","success")
       }
     }
     return (

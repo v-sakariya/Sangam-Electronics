@@ -36,7 +36,17 @@ export default function TextForm(props) {
 
             setText(event.target.value)
         }
-
+        const calculateWordCount = (text) => {
+            if(text.length === 0){
+                return 0
+            }
+            let newText = text.split(/[ ]+/)
+            if(newText[newText.length-1]===""){
+                return newText.length-1
+            }
+            return newText.length
+            
+        }
         const [text,setText] = useState('')
     return (
         <><div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
@@ -52,8 +62,8 @@ export default function TextForm(props) {
     </div>
     <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text Summary</h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} minutes to read</p>
+        <p>{calculateWordCount(text)} words and {text.length} characters</p>
+        <p>{0.008 * calculateWordCount(text)} minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter Something in the text box above to preview"}</p>
     </div>
