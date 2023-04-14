@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Sangam-Electronics/static/css/main.e6c13ad2.css",
+    "main.js": "/Sangam-Electronics/static/js/main.3b8e7605.js",
+    "static/js/787.fd43fcd0.chunk.js": "/Sangam-Electronics/static/js/787.fd43fcd0.chunk.js",
+    "index.html": "/Sangam-Electronics/index.html",
+    "main.e6c13ad2.css.map": "/Sangam-Electronics/static/css/main.e6c13ad2.css.map",
+    "main.3b8e7605.js.map": "/Sangam-Electronics/static/js/main.3b8e7605.js.map",
+    "787.fd43fcd0.chunk.js.map": "/Sangam-Electronics/static/js/787.fd43fcd0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3b8e7605.js"
+  ]
+}
