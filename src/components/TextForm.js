@@ -36,17 +36,6 @@ export default function TextForm(props) {
 
             setText(event.target.value)
         }
-        const calculateWordCount = (text) => {
-            if(text.length === 0){
-                return 0
-            }
-            let newText = text.split(/[ ]+/)
-            if(newText[newText.length-1]===""){
-                return newText.length-1
-            }
-            return newText.length
-            
-        }
         const [text,setText] = useState('')
     return (
         <><div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
@@ -54,16 +43,16 @@ export default function TextForm(props) {
         <div className='mb-3'>
         <textarea className='form-control' value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}} id='myBox' rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleCapClick}>Convert to CapitalizedCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy to Clipboard</button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLowerClick}>Convert to LowerCase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCapClick}>Convert to CapitalizedCase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>Copy to Clipboard</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text Summary</h2>
-        <p>{calculateWordCount(text)} words and {text.length} characters</p>
-        <p>{0.008 * calculateWordCount(text)} minutes to read</p>
+        <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        <p>{0.008 * text.split(' ').filter((element)=>{return element.length!==0}).length} minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter Something in the text box above to preview"}</p>
     </div>
