@@ -4,6 +4,7 @@ import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import {BrowserRouter as Router,Route,Link, Routes} from 'react-router-dom'
 
 function App() {
 
@@ -40,13 +41,19 @@ function App() {
     }
     return (
       <>
-      
-    <Navbar title="Home" link="Link" mode={mode} toggleMode={toggleMode}></Navbar>
+     <Router>
+     <Navbar title="Home" link="About" mode={mode} toggleMode={toggleMode}></Navbar>
     <Alert alert={alert}></Alert>
     <div className='container my-3'>
-    <TextForm showAlert={showAlert} heading="Enter Text Below" mode={mode}></TextForm>
-    {/* <About></About> */}
+      <Routes>
+        <Route exact path='/about' element={<About/>}></Route>
+        <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Enter Text Below" mode={mode}></TextForm>}></Route>
+      
+      </Routes>
+    
     </div>
+      </Router> 
+    
     
     
       </>
