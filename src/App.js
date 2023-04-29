@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import About from './components/About';
+import About from './components/pages/aboutUs/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import {BrowserRouter as Router,Route, Routes} from 'react-router-dom'
+import Footer from './components/Footer';
+import Contact from './components/pages/contact/Contact';
+import Introduction from './components/pages/introduction/Introduction';
+import ProductAndServices from './components/pages/productServices/ProductAndServices';
 
 function App() {
 
@@ -42,20 +46,21 @@ function App() {
     return (
       <>
      <Router>
-     <Navbar title="Home" link="About" mode={mode} toggleMode={toggleMode}></Navbar>
+     <Navbar introduction="Introduction" productServices="Products & Services" aboutUs="About Us" contact="Contact" mode={mode} toggleMode={toggleMode}></Navbar>
     <Alert alert={alert}></Alert>
     <div className='container my-3'>
       <Routes>
-        <Route exact path='/about' element={<About mode={mode}/>}></Route>
         <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Enter Text Below" mode={mode}></TextForm>}></Route>
-      
+        <Route exact path="/introduction" element={<Introduction/>}></Route>
+        <Route exact path="/productAndServices" element={<ProductAndServices/>}></Route>
+        <Route exact path='/about' element={<About mode={mode}/>}></Route>
+        <Route exact path='/contact' element={<Contact/>}></Route>        
       </Routes>
-      {/* <TextForm showAlert={showAlert} heading="Enter Text Below" mode={mode}></TextForm> */}
     </div>
       </Router> 
     
     
-    
+    <Footer/>
       </>
       
     );
